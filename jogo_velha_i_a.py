@@ -59,7 +59,6 @@ def setar(botao):
     lista_locais.append(botao)
     print(len(lista_locais))
     print(lista_locais)
-    print(lista_produto_posicao)
 
     primeira_rodada(botao)
 
@@ -92,31 +91,32 @@ def analise_jogo():
 
     jogada_i_a(cabe_vitoria, cabe_derrota, lista_produto_posicao)
 
+    print(lista_produto_posicao)
 
 def vitoria():
     vitoria_caso = "sem_vitoria"
-    if lista_produto_posicao[0] * lista_produto_posicao[1] * lista_produto_posicao[2] == 50:
+    if lista_produto_posicao[0] * lista_produto_posicao[1] * lista_produto_posicao[2] == 32:
         vitoria_caso = "caso1"
         return vitoria_caso
-    elif lista_produto_posicao[3] * lista_produto_posicao[4] * lista_produto_posicao[5] == 50:
+    elif lista_produto_posicao[3] * lista_produto_posicao[4] * lista_produto_posicao[5] == 32:
         vitoria_caso = "caso2"
         return vitoria_caso
-    elif lista_produto_posicao[6] * lista_produto_posicao[7] * lista_produto_posicao[8] == 50:
+    elif lista_produto_posicao[6] * lista_produto_posicao[7] * lista_produto_posicao[8] == 32:
         vitoria_caso = "caso3"
         return vitoria_caso
-    elif lista_produto_posicao[0] * lista_produto_posicao[3] * lista_produto_posicao[6] == 50:
+    elif lista_produto_posicao[0] * lista_produto_posicao[3] * lista_produto_posicao[6] == 32:
         vitoria_caso = "caso4"
         return vitoria_caso
-    elif lista_produto_posicao[1] * lista_produto_posicao[4] * lista_produto_posicao[7] == 50:
+    elif lista_produto_posicao[1] * lista_produto_posicao[4] * lista_produto_posicao[7] == 32:
         vitoria_caso = "caso5"
         return vitoria_caso
-    elif lista_produto_posicao[2] * lista_produto_posicao[5] * lista_produto_posicao[8] == 50:
+    elif lista_produto_posicao[2] * lista_produto_posicao[5] * lista_produto_posicao[8] == 32:
         vitoria_caso = "caso6"
         return vitoria_caso
-    elif lista_produto_posicao[0] * lista_produto_posicao[4] * lista_produto_posicao[8] == 50:
+    elif lista_produto_posicao[0] * lista_produto_posicao[4] * lista_produto_posicao[8] == 32:
         vitoria_caso = "caso7"
         return vitoria_caso
-    elif lista_produto_posicao[2] * lista_produto_posicao[4] * lista_produto_posicao[6] == 50:
+    elif lista_produto_posicao[2] * lista_produto_posicao[4] * lista_produto_posicao[6] == 32:
         vitoria_caso = "caso8"
         return vitoria_caso
     else:
@@ -128,25 +128,25 @@ def derrota():
     if lista_produto_posicao[0] * lista_produto_posicao[1] * lista_produto_posicao[2] == 18:
         derrota_caso = "caso1"
         return derrota_caso
-    elif lista_produto_posicao[3] * lista_produto_posicao[4] * lista_produto_posicao[5] == 18:
+    if lista_produto_posicao[3] * lista_produto_posicao[4] * lista_produto_posicao[5] == 18:
         derrota_caso = "caso2"
         return derrota_caso
-    elif lista_produto_posicao[6] * lista_produto_posicao[7] * lista_produto_posicao[8] == 18:
+    if lista_produto_posicao[6] * lista_produto_posicao[7] * lista_produto_posicao[8] == 18:
         derrota_caso = "caso3"
         return derrota_caso
-    elif lista_produto_posicao[0] * lista_produto_posicao[3] * lista_produto_posicao[6] == 18:
+    if lista_produto_posicao[0] * lista_produto_posicao[3] * lista_produto_posicao[6] == 18:
         derrota_caso = "caso4"
         return derrota_caso
-    elif lista_produto_posicao[1] * lista_produto_posicao[4] * lista_produto_posicao[7] == 18:
+    if lista_produto_posicao[1] * lista_produto_posicao[4] * lista_produto_posicao[7] == 18:
         derrota_caso = "caso5"
         return derrota_caso
-    elif lista_produto_posicao[2] * lista_produto_posicao[5] * lista_produto_posicao[8] == 18:
+    if lista_produto_posicao[2] * lista_produto_posicao[5] * lista_produto_posicao[8] == 18:
         derrota_caso = "caso6"
         return derrota_caso
-    elif lista_produto_posicao[0] * lista_produto_posicao[4] * lista_produto_posicao[8] == 18:
+    if lista_produto_posicao[0] * lista_produto_posicao[4] * lista_produto_posicao[8] == 18:
         derrota_caso = "caso7"
         return derrota_caso
-    elif lista_produto_posicao[2] * lista_produto_posicao[4] * lista_produto_posicao[6] == 18:
+    if lista_produto_posicao[2] * lista_produto_posicao[4] * lista_produto_posicao[6] == 18:
         derrota_caso = "caso8"
         return derrota_caso
     else:
@@ -156,6 +156,8 @@ def derrota():
 
 
 def jogada_i_a(win,loss, vet_vazios):
+    print(win)
+    print(loss)
     #Caso nao tenha chance de vitoria ou derrota
     if win == "sem_vitoria" and loss == "sem_derrota":
         vet_escolha = []
@@ -191,7 +193,6 @@ def jogada_i_a(win,loss, vet_vazios):
                 if lista_produto_posicao[i] == 2:
                     lista_botoes[i].configure(text="O", state=DISABLED)
         elif win == "caso4":
-            if lista_produto_posicao[0] * lista_produto_posicao[3] * lista_produto_posicao[6] == 50:
                 vet = [0, 3, 6]
                 for i in vet:
                     if lista_produto_posicao[i] == 2:
@@ -249,7 +250,7 @@ def jogada_i_a(win,loss, vet_vazios):
             for i in vet:
                 if lista_produto_posicao[i] == 2:
                     lista_botoes[i].configure(text="O", state=DISABLED)
-        elif win == "caso7":
+        elif loss == "caso7":
             vet = [0, 4, 8]
             for i in vet:
                 if lista_produto_posicao[i] == 2:
